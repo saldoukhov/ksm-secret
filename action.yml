@@ -1,11 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Keeper Secrets Manager Config Provision GitHub Action'
+description: 'A GitHub Action to create Keeper Secrets Manager Config as a GitHub Secret from Keeper Secrets Manager One Time Token'
+author: 'Keeper Security Inc. <sm@keepersecurity.com>'
 inputs:
-  milliseconds: # change this
+  accessToken:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: Personal access token with permission to modify repository or organization secrets
+  oneTimeToken:
+    required: true
+    description: Keeper Secrets Manager One Time Token
+  configName:
+    required: true
+    description: Name of the GitHub Secret that will hold the Keeper Secrets Manager Config
 runs:
   using: 'node12'
   main: 'dist/index.js'
